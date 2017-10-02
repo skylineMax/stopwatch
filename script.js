@@ -7,8 +7,8 @@
     var time = document.querySelectorAll('div#hours, div#minutes, div#seconds');
     var buttons = document.querySelectorAll('input#start, input#stop, input#reset');
     var angle = 0;
-    console.log(buttons[1]);
     var timer;
+    arrow.style.transform = "0deg";
     function go() {
        timer =  setInterval(function() {
           if (angle == 360) {
@@ -38,6 +38,7 @@
         buttons[0].disabled = true;
         buttons[1].disabled = false;
         buttons[2].disabled = true;
+	
     }
     buttons[0].addEventListener('click', go);
     buttons[1].addEventListener('click', function(){
@@ -54,5 +55,6 @@
       buttons[1].disabled = false;
       buttons[2].disabled = true;
       arrow.style.transform = "rotate(0deg)";
+      return angle = 0;
     });
 })();
